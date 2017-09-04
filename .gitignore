@@ -1,0 +1,16 @@
+Logs/
+
+*.user
+*.suo
+*.orig
+*.nupkg
+*.zip
+*.xls
+*.sublime*
+*Copy.*
+*.log
+bin/
+packages/
+obj/
+.vs*
+

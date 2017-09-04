@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YourWorkOut.Views;assembly=YourWorkOut"
+             x:Class="YourWorkOut.Views.ComplexListPage"
+             Title="{Binding Title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAddComplexClicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView x:Name="listComplexes" ItemSelected="OnComplexSelected" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15, 10" Orientation="Horizontal">
+                                
+                                <Label Text="{Binding Name}" 
+                                       Style="{DynamicResource ListItemTextStyle}" FontSize="18" FontAttributes="Bold"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Start"></Label>
+
+                                <Label Text="{Binding DurationTimeInSeconds, StringFormat='Duration: {0} sec'}" 
+                                       Style="{DynamicResource ListItemDetailTextStyle}" FontSize="10"
+                                       VerticalTextAlignment="Center" VerticalOptions="Center"
+                                       HorizontalTextAlignment="End"></Label>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
