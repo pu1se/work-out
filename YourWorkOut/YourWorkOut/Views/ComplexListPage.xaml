@@ -10,23 +10,23 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10">
 
             <ListView x:Name="listComplexes" ItemSelected="OnComplexSelected" VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="15, 10" Orientation="Horizontal">
+                            <StackLayout Padding="20, 2" Orientation="Horizontal" >
                                 
                                 <Label Text="{Binding Name}" 
-                                       Style="{DynamicResource ListItemTextStyle}" FontSize="18" FontAttributes="Bold"
+                                       FontSize="Medium" FontAttributes="Bold"
                                        VerticalTextAlignment="Center" 
                                        HorizontalTextAlignment="Start"></Label>
 
-                                <Label Text="{Binding DurationTimeInSeconds, StringFormat='Duration: {0} sec'}" 
-                                       Style="{DynamicResource ListItemDetailTextStyle}" FontSize="10"
+                                <Label Text="{Binding DurationTimeInSeconds, StringFormat='Duration {0} sec'}" 
+                                       FontSize="Micro"
                                        VerticalTextAlignment="Center" VerticalOptions="Center"
-                                       HorizontalTextAlignment="End"></Label>
+                                       HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"></Label>
 
                             </StackLayout>
                         </ViewCell>

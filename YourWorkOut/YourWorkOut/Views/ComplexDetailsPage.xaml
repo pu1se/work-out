@@ -8,16 +8,15 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <StackLayout Padding="15">
             
-<!--            <Label Text="Name"></Label>-->
+            <Label Text="Name" FontSize="Small"></Label>
             <Entry Text="{Binding Item.Name}"></Entry>
+
+            <Label Text="Timer per Exercise" FontSize="Small"></Label>
+            <Picker x:Name="picDuration"></Picker>
             
-            
-            
-            <Label Text="Default Timer"></Label>
-            <Entry Text="{Binding Item.DurationTimeInSeconds}"></Entry>
-            
+            <Button Text="Start" Clicked="OnStartClicked" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="ForestGreen"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

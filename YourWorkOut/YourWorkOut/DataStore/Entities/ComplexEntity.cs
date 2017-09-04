@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YourWorkOut.DataStore.Enums;
 
 namespace YourWorkOut.DataStore.Entities
 {
@@ -10,7 +11,8 @@ namespace YourWorkOut.DataStore.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int DurationTimeInSeconds { get; set; } = 30;
+        public int DurationTimeInSeconds { get; set; }
+        public DurationEnum DurationTimePerExerciseInSeconds { get; set; } = DurationEnum.Default;
 
     }
 }

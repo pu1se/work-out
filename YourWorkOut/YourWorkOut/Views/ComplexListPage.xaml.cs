@@ -35,7 +35,7 @@ namespace YourWorkOut.Views
             {
                 await Navigation.PushAsync(new ExerciseComplexDetailPage(selectedComplex));
 
-
+                listComplexes.SelectedItem = null;
             }
         }
     }
