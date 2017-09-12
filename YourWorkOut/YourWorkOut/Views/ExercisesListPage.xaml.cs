@@ -7,39 +7,30 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YourWorkOut.Services;
 
 namespace YourWorkOut.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExercisesListPage : ContentPage
     {
-        public List<string> Items { get; set; }
+        public ExerciseService Service { get; private set; }
 
         public ExercisesListPage()
         {
             InitializeComponent();
-
-            Items = new List<string>
-            {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
-            };
-
-            BindingContext = this;
+            Service = new ExerciseService();
+            listExercises.ItemsSource = Service.GetList();
+            Title = "Exercises";
         }
 
-        async void Handle_ItemTapped(object sender, SelectedItemChangedEventArgs e)
+        async void OnAddExerciseClicked(object sender, EventArgs e)
         {
-            if (e.SelectedItem == null)
-                return;
+        }
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+        async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
         }
     }
 }

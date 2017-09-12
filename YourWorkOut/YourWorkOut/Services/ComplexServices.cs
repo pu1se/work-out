@@ -21,6 +21,7 @@ namespace YourWorkOut.Services
                 new ComplexEntity{Id=2, Name = "Complex 2", DurationTimeInSeconds = 30, DurationTimePerExerciseInSeconds = DurationEnum.s20},
                 new ComplexEntity{Id=3, Name = "Complex 3", DurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},
                 new ComplexEntity{Id=4, Name = "Complex 4", DurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},
+                
             };
         }
 

@@ -40,12 +40,15 @@
     </Compile>
     <Compile Include="Core\DescriptionAttribute.cs" />
     <Compile Include="Core\EnumHelper.cs" />
+    <Compile Include="Core\ImageHelper.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="DataStore\Entities\ComplexEntity.cs" />
+    <Compile Include="DataStore\Entities\ExerciseEntity.cs" />
     <Compile Include="DataStore\Enums\DefaultDurationEnum.cs" />
     <Compile Include="DataStore\Enums\DurationEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComplexServices.cs" />
+    <Compile Include="Services\ExerciseService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ComplexListViewModel.cs" />
     <Compile Include="Views\ComplexDetailsPage.xaml.cs">
@@ -104,6 +107,21 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\exercise-1.png" />
+    <EmbeddedResource Include="Images\exercise-2.png" />
+    <EmbeddedResource Include="Images\exercise-3.png" />
+    <EmbeddedResource Include="Images\exercise-4.png" />
+    <EmbeddedResource Include="Images\exercise-5.png" />
+    <EmbeddedResource Include="Images\exercise-6.png" />
+    <EmbeddedResource Include="Images\exercise-7.png" />
+    <EmbeddedResource Include="Images\exercise-8.png" />
+    <EmbeddedResource Include="Images\exercise-9.png" />
+    <EmbeddedResource Include="Images\exercise-10.png" />
+    <EmbeddedResource Include="Images\exercise-11.png" />
+    <EmbeddedResource Include="Images\exercise-12.png" />
+    <EmbeddedResource Include="Images\exercise-13.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

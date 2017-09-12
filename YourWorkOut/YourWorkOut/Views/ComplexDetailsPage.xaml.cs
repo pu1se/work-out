@@ -18,22 +18,26 @@ namespace YourWorkOut.Views
 
         public ComplexDetailPage()
         {
+            InitControls();
+
             Title = "New Complex";
             picDuration.SelectedItem = EnumHelper.GetDescription(DurationEnum.s30);
         }
 
         public ComplexDetailPage(ComplexEntity selectedComplex)
         {
-            InitializeComponent();
-            picDuration.ItemsSource = EnumHelper.EnumerateEnumWithDescription<DurationEnum>().Select(x => x.Value).ToList();
-
             Item = selectedComplex;
-            Title = "Edit Complex "+Item.Name;
+            Title = $"Edit \"{Item.Name}\"";
+            InitControls();
             picDuration.SelectedItem = EnumHelper.GetDescription(Item.DurationTimePerExerciseInSeconds);
-            txtName.Text = Item.Name;
         }
 
-
+        void InitControls()
+        {
+            InitializeComponent();
+            picDuration.ItemsSource = EnumHelper.EnumerateEnumWithDescription<DurationEnum>().Select(x => x.Value).ToList();
+            txtName.Text = Item.Name;
+        }
 
         public void OnSaveClicked(object sender, EventArgs eventArgs)
         {

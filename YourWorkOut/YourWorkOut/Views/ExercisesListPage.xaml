@@ -2,29 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YourWorkOut.Views.ExercisesListPage">
-  <ListView ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-            
-    <!--Built in Cells-->
-<!--    <ListView.ItemTemplate>
-      <DataTemplate>
-        <TextCell />
-      </DataTemplate>
-    </ListView.ItemTemplate>-->
-    
-    <!--Custom View Cells-->
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAddExerciseClicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ListView x:Name="listExercises" ItemSelected="OnExerciseSelected" 
+              SeparatorVisibility="None"
+              HasUnevenRows="True">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="20, 2" >
+                        
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontSize="Medium" />
+                        <Image Source="{Binding Image}" HorizontalOptions="Fill" Aspect="AspectFit" 
+                               VerticalOptions="Fill"></Image>
+                        <BoxView Color="Gray" WidthRequest="100" HeightRequest="1"></BoxView>
+                        
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        
+    </ListView>
 </ContentPage>
