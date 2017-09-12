@@ -13,7 +13,7 @@ namespace YourWorkOut
             if (value == null)
                 return "";
 
-            var description = value.GetType().GetTypeInfo().GetCustomAttribute<DescriptionAttribute>();
+            var description = value.GetType().GetRuntimeField(value.ToString()).GetCustomAttribute<DescriptionAttribute>();
 
             if (description != null)
             {
@@ -29,7 +29,8 @@ namespace YourWorkOut
 
         public static Dictionary<T, string> EnumerateEnumWithDescription<T>()
         {
-            return EnumerateEnum<T>().ToDictionary(x => x, x => GetDescription(x as Enum));
+            var result = EnumerateEnum<T>().ToDictionary(x => x, x => GetDescription(x as Enum));
+            return result;
         }
 
         public static T Parse<T>(string value)

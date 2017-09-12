@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YourWorkOut.Views.ExerciseComplexDetailPage">
+             x:Class="YourWorkOut.Views.ComplexDetailPage">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="OnSaveClicked"></ToolbarItem>
@@ -11,12 +11,16 @@
         <StackLayout Padding="15">
             
             <Label Text="Name" FontSize="Small"></Label>
-            <Entry Text="{Binding Item.Name}"></Entry>
+            <Entry x:Name="txtName"></Entry>
 
             <Label Text="Timer per Exercise" FontSize="Small"></Label>
             <Picker x:Name="picDuration"></Picker>
             
-            <Button Text="Start" Clicked="OnStartClicked" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="ForestGreen"></Button>
+            <Button Text="Start" Clicked="OnStartClicked" 
+                    TextColor="White" BackgroundColor="ForestGreen"
+                    BorderColor="Blue"
+                    BorderRadius = "5"
+                    BorderWidth = "2"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

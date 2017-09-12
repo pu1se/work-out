@@ -25,7 +25,7 @@ namespace YourWorkOut.Views
 
         async void OnAddComplexClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ExerciseComplexDetailPage());
+            await Navigation.PushAsync(new ComplexDetailPage());
         }
 
         async void OnComplexSelected(object sender, SelectedItemChangedEventArgs e)
@@ -33,7 +33,7 @@ namespace YourWorkOut.Views
             var selectedComplex = e.SelectedItem as ComplexEntity;
             if (selectedComplex != null)
             {
-                await Navigation.PushAsync(new ExerciseComplexDetailPage(selectedComplex));
+                await Navigation.PushAsync(new ComplexDetailPage(selectedComplex));
 
                 listComplexes.SelectedItem = null;
             }

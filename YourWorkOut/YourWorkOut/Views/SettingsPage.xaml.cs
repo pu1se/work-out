@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YourWorkOut.DataStore.Enums;
 
 namespace YourWorkOut.Views
 {
@@ -15,6 +16,13 @@ namespace YourWorkOut.Views
         public SettingsPage()
         {
             InitializeComponent();
+            picDuration.ItemsSource = EnumHelper.EnumerateEnumWithDescription<DefaultDurationEnum>().Select(x => x.Value).ToList();
+            picDuration.SelectedItem = EnumHelper.GetDescription(DefaultDurationEnum.s30);
+        }
+
+        public async void OnEditExercisesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ExercisesListPage());
         }
     }
 }

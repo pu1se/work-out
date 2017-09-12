@@ -3,8 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YourWorkOut.Views.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Settings page!" />
+        <StackLayout Padding="15">
+                                 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Default Timer per Exercise" FontSize="Small" VerticalOptions="Center"></Label>
+                <Picker Grid.Row="0" Grid.Column="1" x:Name="picDuration" HorizontalOptions="FillAndExpand"></Picker>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Exercises" FontSize="Small"  VerticalOptions="Center"></Label>
+                <Button Grid.Row="1" Grid.Column="1" Clicked="OnEditExercisesClicked" Text="Edit" FontSize="Small" ></Button>
+                
+            </Grid>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
