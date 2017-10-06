@@ -13,6 +13,6 @@ namespace YourWorkOut.DataStore.Entities
         public string Name { get; set; }
         public int DurationTimeInSeconds { get; set; }
         public DurationEnum DurationTimePerExerciseInSeconds { get; set; } = DurationEnum.s30;
-
+        public List<ExerciseEntity> Exercise { get; set; } = new List<ExerciseEntity>();
     }
 }

@@ -10,16 +10,32 @@
     <ContentPage.Content>
         <StackLayout Padding="15">
             
-            <Label Text="Name" FontSize="Small"></Label>
-            <Entry x:Name="txtName"></Entry>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-            <Label Text="Timer per Exercise" FontSize="Small"></Label>
-            <Picker x:Name="picDuration"></Picker>
-            
-            <Button Text="Start" Clicked="OnStartClicked" 
+                <Label Grid.Row="0" Grid.Column="0" Text="Timer per Exercise" FontSize="Small" VerticalOptions="Center"></Label>
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="txtName" HorizontalOptions="FillAndExpand"></Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Timer per Exercise" FontSize="Small" VerticalOptions="Center"></Label>
+                <Picker Grid.Row="1" Grid.Column="1" x:Name="picDuration" HorizontalOptions="FillAndExpand"></Picker>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Exercises List" FontSize="Small"  VerticalOptions="Center"></Label>
+                <Button Grid.Row="2" Grid.Column="1" Clicked="OnEditExercisesListClicked" Text="Edit" FontSize="Small" ></Button>
+
+            </Grid>
+
+            <Button Margin="10, 50" Text="Start" Clicked="OnStartClicked" 
                     TextColor="White" BackgroundColor="ForestGreen"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
                     BorderColor="Blue"
-                    BorderRadius = "5"
+                    BorderRadius = "50"
                     BorderWidth = "2"></Button>
         </StackLayout>
     </ContentPage.Content>

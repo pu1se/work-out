@@ -48,5 +48,10 @@ namespace YourWorkOut.Views
         {
             
         }
+
+        public void OnEditExercisesListClicked(object sender, EventArgs eventArgs)
+        {
+
+        }
     }
 }
