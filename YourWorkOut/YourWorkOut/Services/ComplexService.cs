@@ -9,19 +9,19 @@ using YourWorkOut.ViewModels;
 
 namespace YourWorkOut.Services
 {
-    public class ComplexServices
+    public class ComplexService
     {
         public ExerciseService ExerciseService = new ExerciseService();
         private List<ComplexEntity> ComplexList { get; }
 
-        public ComplexServices()
+        public ComplexService()
         {
             ComplexList = new List<ComplexEntity>
             {
-                new ComplexEntity{Id=1, Name = "Complex 1", DurationTimeInSeconds = 60, DurationTimePerExerciseInSeconds = DurationEnum.s10},
-                new ComplexEntity{Id=2, Name = "Complex 2", DurationTimeInSeconds = 30, DurationTimePerExerciseInSeconds = DurationEnum.s20},
-                new ComplexEntity{Id=3, Name = "Complex 3", DurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},
-                new ComplexEntity{Id=4, Name = "Complex 4", DurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},                
+                new ComplexEntity{Id=1, Name = "Complex 1", ComplexDurationTimeInSeconds = 60, DurationTimePerExerciseInSeconds = DurationEnum.s10},
+                new ComplexEntity{Id=2, Name = "Complex 2", ComplexDurationTimeInSeconds = 30, DurationTimePerExerciseInSeconds = DurationEnum.s20},
+                new ComplexEntity{Id=3, Name = "Complex 3", ComplexDurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},
+                new ComplexEntity{Id=4, Name = "Complex 4", ComplexDurationTimeInSeconds = 120, DurationTimePerExerciseInSeconds = DurationEnum.s30},                
             };
 
             var exersiciesList = ExerciseService.GetList();
@@ -40,5 +40,12 @@ namespace YourWorkOut.Services
         {
             return ComplexList.FirstOrDefault(x => x.Id == id);
         }
+
+        public void Save(ComplexEntity complex)
+        {
+            ComplexList.Remove(ComplexList.First(x => x.Id == complex.Id));
+            ComplexList.Add(complex);
+        }
+
     }
 }

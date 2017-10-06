@@ -21,7 +21,7 @@ namespace YourWorkOut.Views
             InitializeComponent();
             Service = new ExerciseService();
             listExercises.ItemsSource = Service.GetList();
-            Title = "Exercises";
+            Title = "Available Exercises";
         }
 
         async void OnAddExerciseClicked(object sender, EventArgs e)

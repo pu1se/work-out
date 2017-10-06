@@ -14,13 +14,12 @@ namespace YourWorkOut.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ComplexListPage : ContentPage
     {
-        public ComplexServices ComplexServices { get; private set; }
+        ComplexService ComplexServices = new ComplexService();
+
         public ComplexListPage()
         {
             InitializeComponent();
-            
-            ComplexServices = new ComplexServices();
-            listComplexes.ItemsSource = ComplexServices.GetList();
+            listComplexes.ItemsSource = ComplexServices.GetList().OrderBy(x=>x.Id);
         }
 
         async void OnAddComplexClicked(object sender, EventArgs e)
