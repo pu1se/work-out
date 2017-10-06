@@ -15,13 +15,27 @@
         <ListView.ItemTemplate >
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Padding="20, 2" >
+                    <StackLayout Orientation="Vertical"  Padding="20, 2">
                         
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontSize="Medium" />
-                        <Image Source="{Binding Image}" HorizontalOptions="Fill" Aspect="AspectFit" 
-                               VerticalOptions="Fill"></Image>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="{Binding Image}" HeightRequest="70">
+<!--                                <Image.HeightRequest>
+                                    <OnIdiom x:TypeArguments="x:Double">
+                                        <OnIdiom.Phone>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="70" Android="70" WinPhone="70" />
+                                        </OnIdiom.Phone>
+                                        <OnIdiom.Tablet>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="140" Android="140" WinPhone="140" />
+                                        </OnIdiom.Tablet>
+                                    </OnIdiom>
+                                </Image.HeightRequest>-->
+                            </Image>
+                            <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="Medium" />
+                            
+                        </StackLayout>
                         <BoxView Color="Gray" WidthRequest="100" HeightRequest="1"></BoxView>
-                        
+
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

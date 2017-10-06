@@ -8,26 +8,28 @@
               SeparatorVisibility="None"
               HasUnevenRows="True">
 
-        <ListView.ItemTemplate>
+        <ListView.ItemTemplate >
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Padding="20, 2" >
-
-                        <Label Text="{Binding Name}" HorizontalOptions="Center" FontSize="Medium" />
-                        
+                                                
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="2*"></ColumnDefinition>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
                             </Grid.RowDefinitions>
                             
                             <Image Grid.Row="0" Grid.Column="0" Source="{Binding Image}" HorizontalOptions="Fill" Aspect="AspectFit" 
                                    VerticalOptions="Fill"></Image>
 
-                            <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding IsSelected}"></Switch>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" 
+                                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium" />
+                            
+                            <Switch Grid.Row="0" Grid.Column="2" IsToggled="{Binding IsSelected}"></Switch>
                         </Grid>
 
                         <BoxView Color="Gray" WidthRequest="100" HeightRequest="1"></BoxView>

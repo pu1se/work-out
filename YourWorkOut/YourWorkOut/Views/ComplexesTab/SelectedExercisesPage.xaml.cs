@@ -37,6 +37,11 @@ namespace YourWorkOut.Views.ComplexesTab
 
 	    async void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
 	    {
+	        var selectedItem = e.SelectedItem as SelectedExerciseViewModel;
+	        if (selectedItem == null)
+	            return;
+
+	        listExercises.SelectedItem = null;
 
 	    }
     }

@@ -30,12 +30,11 @@ namespace YourWorkOut.Views
         async void OnComplexSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedComplex = e.SelectedItem as ComplexEntity;
-            if (selectedComplex != null)
-            {
-                await Navigation.PushAsync(new ComplexDetailPage(selectedComplex));
+            if (selectedComplex == null)
+                return;
 
-                listComplexes.SelectedItem = null;
-            }
+            await Navigation.PushAsync(new ComplexDetailPage(selectedComplex));
+            listComplexes.SelectedItem = null;
         }
     }
 }
