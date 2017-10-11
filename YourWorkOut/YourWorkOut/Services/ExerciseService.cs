@@ -18,18 +18,18 @@ namespace YourWorkOut.Services
             List = new List<ExerciseEntity>
             {
                 new ExerciseEntity{Id = 1, Name = "Jumping jacks"},
-                new ExerciseEntity{Id = 2, Name = "Push up"},
-                new ExerciseEntity{Id = 3, Name = "tmp 3"},
-                new ExerciseEntity{Id = 4, Name = "tmp 3"},
-                new ExerciseEntity{Id = 5, Name = "tmp 3"},
-                new ExerciseEntity{Id = 6, Name = "tmp 3"},
-                new ExerciseEntity{Id = 7, Name = "tmp 3"},
-                new ExerciseEntity{Id = 8, Name = "tmp 3"},
-                new ExerciseEntity{Id = 9, Name = "tmp 3"},
-                new ExerciseEntity{Id = 10, Name = "tmp 10"},
-                new ExerciseEntity{Id = 11, Name = "tmp 11"},
-                new ExerciseEntity{Id = 12, Name = "tmp 12"},
-                new ExerciseEntity{Id = 13, Name = "tmp 13"},
+                new ExerciseEntity{Id = 2, Name = "Wall sit"},
+                new ExerciseEntity{Id = 3, Name = "Push-up"},
+                new ExerciseEntity{Id = 4, Name = "Abdominal crunch"},
+                new ExerciseEntity{Id = 5, Name = "Step-up onto chair"},
+                new ExerciseEntity{Id = 6, Name = "Squat"},
+                new ExerciseEntity{Id = 7, Name = "Triceps dip on chair"},
+                new ExerciseEntity{Id = 8, Name = "Plank"},
+                new ExerciseEntity{Id = 9, Name = "High knees"},
+                new ExerciseEntity{Id = 10, Name = "Lunge"},
+                new ExerciseEntity{Id = 11, Name = "Push-up and rotation"},
+                new ExerciseEntity{Id = 12, Name = "Side plank (left)"},
+                new ExerciseEntity{Id = 13, Name = "Side plank (right)"},
             };
 
             foreach (var item in List)

@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:Xamarin.CustomControls;assembly=Xamarin.CustomControls.ProgressBarView"
              x:Class="YourWorkOut.Views.ComplexesTab.MakeingExercisePage">
     
         <StackLayout Padding="5, 25">
             <Label x:Name="txtProgressExercises" HorizontalOptions="Center" FontSize="Medium"  ></Label>
-        <ProgressBar x:Name="progerssExercises"  BackgroundColor="Transparent"  
-                     Margin="20,0" HorizontalOptions="FillAndExpand" HeightRequest="20"/>
+        <customControls:ProgressBarView x:Name="progress" Margin="20,0" BackgroundColor="WhiteSmoke" Color="CadetBlue" HeightRequest="25" LabelPosition="Center" ></customControls:ProgressBarView>
+
         <Label x:Name="txtTimeLeft" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" />
         <Image x:Name="imgImage" HorizontalOptions="Fill" Aspect="AspectFit" 
                    VerticalOptions="Fill"></Image>

@@ -35,7 +35,8 @@ namespace YourWorkOut.Views.ComplexesTab
 	    public void StartNewExercise(Stack<ExerciseEntity> leftExercises, int numberOfAllExercises)
 	    {
 	        txtProgressExercises.Text = numberOfAllExercises - leftExercises.Count + " / " + numberOfAllExercises;
-	        progerssExercises.ProgressTo((numberOfAllExercises - leftExercises.Count) * 1.0 / numberOfAllExercises, 800, Easing.Linear);
+            progress.ProgressTo(100*(numberOfAllExercises - leftExercises.Count) * 1.0 / numberOfAllExercises, 500, Easing.Linear);
+            
             if (leftExercises.Count == 0)
 	        {
 	            txtName.Text = "Your work out is completed";
