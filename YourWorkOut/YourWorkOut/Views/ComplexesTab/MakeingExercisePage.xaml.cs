@@ -26,21 +26,26 @@ namespace YourWorkOut.Views.ComplexesTab
             
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                StartNewExercise(exercises);
+                StartNewExercise(exercises, exercises.Count);
                 return false;
             });
 
 		}
 
-	    public void StartNewExercise(Stack<ExerciseEntity> leftExercises)
+	    public void StartNewExercise(Stack<ExerciseEntity> leftExercises, int numberOfAllExercises)
 	    {
-	        if (leftExercises.Count == 0)
+	        txtProgressExercises.Text = numberOfAllExercises - leftExercises.Count + " / " + numberOfAllExercises;
+	        progerssExercises.ProgressTo((numberOfAllExercises - leftExercises.Count) * 1.0 / numberOfAllExercises, 800, Easing.Linear);
+            if (leftExercises.Count == 0)
 	        {
-	            txtName.Text = "Your work out completed";
+	            txtName.Text = "Your work out is completed";
 	            imgImage.Source = null;
 	            txtTimeLeft.Text = "You've crushed it!";
                 return;
 	        }
+
+	        
+            
 
 	        var currentExercise = leftExercises.Pop();
 
@@ -58,7 +63,7 @@ namespace YourWorkOut.Views.ComplexesTab
 	            if (duration > 0)
 	                return true;
 
-                StartNewExercise(leftExercises);
+                StartNewExercise(leftExercises, numberOfAllExercises);
 	            return false;
 	        });
         }

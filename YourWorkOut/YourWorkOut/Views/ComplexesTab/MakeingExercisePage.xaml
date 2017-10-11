@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YourWorkOut.Views.ComplexesTab.MakeingExercisePage">
     
-        <StackLayout>
-            <Label x:Name="txtName" HorizontalOptions="Center" FontSize="Medium" />
-            <Image x:Name="imgImage" HorizontalOptions="Fill" Aspect="AspectFit" 
+        <StackLayout Padding="5, 25">
+            <Label x:Name="txtProgressExercises" HorizontalOptions="Center" FontSize="Medium"  ></Label>
+        <ProgressBar x:Name="progerssExercises"  BackgroundColor="Transparent"  
+                     Margin="20,0" HorizontalOptions="FillAndExpand" HeightRequest="20"/>
+        <Label x:Name="txtTimeLeft" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" />
+        <Image x:Name="imgImage" HorizontalOptions="Fill" Aspect="AspectFit" 
                    VerticalOptions="Fill"></Image>
-            <Label x:Name="txtTimeLeft" HorizontalOptions="Center" FontSize="70" FontAttributes="Bold" />
+        <Label x:Name="txtName" HorizontalOptions="Center" FontSize="Medium" />
+        
     </StackLayout>
 </ContentPage>
