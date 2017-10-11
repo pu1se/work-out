@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourWorkOut.Views.ComplexesTab.MakeingExercisePage">
+    
+        <StackLayout>
+            <Label x:Name="txtName" HorizontalOptions="Center" FontSize="Medium" />
+            <Image x:Name="imgImage" HorizontalOptions="Fill" Aspect="AspectFit" 
+                   VerticalOptions="Fill"></Image>
+            <Label x:Name="txtTimeLeft" HorizontalOptions="Center" FontSize="70" FontAttributes="Bold" />
+    </StackLayout>
+</ContentPage>

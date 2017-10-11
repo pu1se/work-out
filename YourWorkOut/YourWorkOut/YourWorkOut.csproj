@@ -40,7 +40,7 @@
     </Compile>
     <Compile Include="Core\DescriptionAttribute.cs" />
     <Compile Include="Core\EnumHelper.cs" />
-    <Compile Include="Core\ImageHelper.cs" />
+    <Compile Include="Core\EmbadedFilesHelper.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="DataStore\Entities\ComplexEntity.cs" />
     <Compile Include="DataStore\Entities\ExerciseEntity.cs" />
@@ -58,8 +58,14 @@
     <Compile Include="Views\ComplexesTab\ComplexListPage.xaml.cs">
       <DependentUpon>ComplexListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ComplexesTab\MakeingExercisePage.xaml.cs">
+      <DependentUpon>MakeingExercisePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ComplexesTab\SelectedExercisesPage.xaml.cs">
       <DependentUpon>SelectedExercisesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsTab\ExerciseDetailsPage.xaml.cs">
+      <DependentUpon>ExerciseDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsTab\ExercisesListPage.xaml.cs">
       <DependentUpon>ExercisesListPage.xaml</DependentUpon>
@@ -129,6 +135,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ComplexesTab\SelectedExercisesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SettingsTab\ExerciseDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ComplexesTab\MakeingExercisePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -15,13 +15,14 @@ namespace YourWorkOut.Views.ComplexesTab
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SelectedExercisesPage : ContentPage
 	{
+        ComplexService ComplexService = new ComplexService();
 	    ExerciseService ExerciseService = new ExerciseService();
 	    ComplexEntity SelectedComplex { get; }
 
         public SelectedExercisesPage (ComplexEntity selectedComplex)
 		{
 			InitializeComponent ();
-		    Title = "Select Exercises for Complex";
+		    Title = "Select Exercises";
 		    SelectedComplex = selectedComplex;
 		    var exercises = ExerciseService.GetList().Select(x=> new SelectedExerciseViewModel
 		    {
@@ -41,8 +42,24 @@ namespace YourWorkOut.Views.ComplexesTab
 	        if (selectedItem == null)
 	            return;
 
-	        listExercises.SelectedItem = null;
+	        
+	        var list = (listExercises.ItemsSource as IEnumerable<SelectedExerciseViewModel>).ToList();
+	        var item = list.FirstOrDefault(x => x.Id == selectedItem.Id);
+	        item.IsSelected = !item.IsSelected;
+	        list[list.IndexOf(item)] = item;
+	        listExercises.ItemsSource = list;
 
+            listExercises.SelectedItem = null;
+        }
+
+	    public async void OnSaveClicked(object sender, EventArgs e)
+	    {
+	        var list = (listExercises.ItemsSource as IEnumerable<SelectedExerciseViewModel>).ToList();
+	        list = list.Where(x => x.IsSelected).ToList();
+	        SelectedComplex.Exercise = ExerciseService.GetList().Where(x=>list.Select(y=>y.Id).Contains(x.Id)).ToList();
+	        ComplexService.Save(SelectedComplex);
+
+	        await Navigation.PopAsync();
 	    }
     }
 }

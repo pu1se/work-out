@@ -34,7 +34,7 @@ namespace YourWorkOut.Services
 
             foreach (var item in List)
             {
-                item.Image = ImageHelper.GetEmbadedImage(imageName(item.Id));
+                item.Image = EmbadedFilesHelper.GetImage(imageName(item.Id));
             }
         }
 

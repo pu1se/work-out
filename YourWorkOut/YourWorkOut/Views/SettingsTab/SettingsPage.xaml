@@ -18,7 +18,7 @@
                 <Picker Grid.Row="0" Grid.Column="1" x:Name="picDuration" HorizontalOptions="FillAndExpand"></Picker>
 
                 <Label Grid.Row="1" Grid.Column="0" Text="Available Exercises" FontSize="Small"  VerticalOptions="Center"></Label>
-                <Button Grid.Row="1" Grid.Column="1" Clicked="OnEditExercisesClicked" Text="Edit" FontSize="Small" ></Button>
+                <Button Grid.Row="1" Grid.Column="1" Clicked="OnEditExercisesClicked" Text="View" FontSize="Small" ></Button>
                 
             </Grid>
             
