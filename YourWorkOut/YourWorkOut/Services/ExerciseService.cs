@@ -9,13 +9,23 @@ namespace YourWorkOut.Services
 {
     public class ExerciseService
     {
-        private List<ExerciseEntity> List { get; set; }
+        private string ServiceKey = "ExerciseList";
+        private List<ExerciseEntity> ExerciseList { get; set; }
 
         public ExerciseService()
         {
-            var imageName = new Func<int, string>( id => "exercise-" + id + ".png" );
+            if (App.Current.Properties.ContainsKey(ServiceKey) == false)
+            {
+                ExerciseList = GetInitializedExerciseList();
+                App.Current.Properties[ServiceKey] = ExerciseList;
+            }
+            ExerciseList = App.Current.Properties[ServiceKey] as List<ExerciseEntity>;
+        }
 
-            List = new List<ExerciseEntity>
+        private List<ExerciseEntity> GetInitializedExerciseList()
+        {
+            var imageName = new Func<int, string>(id => "exercise-" + id + ".png");
+            var list = new List<ExerciseEntity>
             {
                 new ExerciseEntity{Id = 1, Name = "Jumping jacks"},
                 new ExerciseEntity{Id = 2, Name = "Wall sit"},
@@ -32,20 +42,29 @@ namespace YourWorkOut.Services
                 new ExerciseEntity{Id = 13, Name = "Side plank (right)"},
             };
 
-            foreach (var item in List)
+            foreach (var item in list)
             {
                 item.Image = EmbadedFilesHelper.GetImage(imageName(item.Id));
             }
+            return list;
         }
 
         public List<ExerciseEntity> GetList()
         {
-            return List;
+            return ExerciseList;
         }
 
         public ExerciseEntity GetItem(int id)
         {
-            return List.FirstOrDefault(x=>x.Id == id);
+            return ExerciseList.FirstOrDefault(x=>x.Id == id);
+        }
+
+        public void Save(ExerciseEntity complex)
+        {
+            ExerciseList.Remove(ExerciseList.First(x => x.Id == complex.Id));
+            ExerciseList.Add(complex);
+            App.Current.Properties[ServiceKey] = ExerciseList;
+            App.Current.SavePropertiesAsync();
         }
     }
 }

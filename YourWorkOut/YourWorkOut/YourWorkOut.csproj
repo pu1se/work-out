@@ -42,10 +42,10 @@
     <Compile Include="Core\EnumHelper.cs" />
     <Compile Include="Core\EmbadedFilesHelper.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
-    <Compile Include="DataStore\Entities\ComplexEntity.cs" />
-    <Compile Include="DataStore\Entities\ExerciseEntity.cs" />
-    <Compile Include="DataStore\Enums\DefaultDurationEnum.cs" />
-    <Compile Include="DataStore\Enums\DurationEnum.cs" />
+    <Compile Include="Entities\ComplexEntity.cs" />
+    <Compile Include="Entities\ExerciseEntity.cs" />
+    <Compile Include="Enums\DefaultDurationEnum.cs" />
+    <Compile Include="Enums\DurationEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ComplexService.cs" />
     <Compile Include="Services\ExerciseService.cs" />
