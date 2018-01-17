@@ -36,5 +36,11 @@ namespace YourWorkOut.Views
             await Navigation.PushAsync(new ComplexDetailPage(selectedComplex));
             listComplexes.SelectedItem = null;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            listComplexes.ItemsSource = ComplexServices.GetList().OrderBy(x => x.Id);
+        }
     }
 }

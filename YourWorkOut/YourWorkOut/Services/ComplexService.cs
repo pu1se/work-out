@@ -9,21 +9,19 @@ using YourWorkOut.ViewModels;
 
 namespace YourWorkOut.Services
 {
-    public class ComplexService
+    public class ComplexService : BaseService<List<ComplexEntity>>
     {
         public ExerciseService ExerciseService = new ExerciseService();
-        private string ServiceKey = "ComplexList";
         private List<ComplexEntity> ComplexList { get; }
 
         public ComplexService()
         {
-            appse
-            if (App.Current.Properties.ContainsKey(ServiceKey) == false)
+            ComplexList = GetData();
+            if (ComplexList == null)
             {
                 ComplexList = GetInitializedComplexList();
-                App.Current.Properties[ServiceKey] = ComplexList;
+                SaveData(ComplexList);
             }
-            ComplexList = App.Current.Properties[ServiceKey] as List<ComplexEntity>;
         }
 
         private List<ComplexEntity> GetInitializedComplexList()
@@ -58,8 +56,7 @@ namespace YourWorkOut.Services
         {
             ComplexList.Remove(ComplexList.First(x => x.Id == complex.Id));
             ComplexList.Add(complex);
-            App.Current.Properties[ServiceKey] = ComplexList;
-            App.Current.SavePropertiesAsync();
+            SaveData(ComplexList);
         }
 
     }

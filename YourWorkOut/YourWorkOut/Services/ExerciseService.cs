@@ -7,19 +7,18 @@ using YourWorkOut.DataStore.Entities;
 
 namespace YourWorkOut.Services
 {
-    public class ExerciseService
+    public class ExerciseService : BaseService<List<ExerciseEntity>>
     {
-        private string ServiceKey = "ExerciseList";
         private List<ExerciseEntity> ExerciseList { get; set; }
 
         public ExerciseService()
         {
-            if (App.Current.Properties.ContainsKey(ServiceKey) == false)
+            ExerciseList = GetData();
+            if (ExerciseList == null)
             {
                 ExerciseList = GetInitializedExerciseList();
-                App.Current.Properties[ServiceKey] = ExerciseList;
+                SaveData(ExerciseList);
             }
-            ExerciseList = App.Current.Properties[ServiceKey] as List<ExerciseEntity>;
         }
 
         private List<ExerciseEntity> GetInitializedExerciseList()
@@ -44,7 +43,7 @@ namespace YourWorkOut.Services
 
             foreach (var item in list)
             {
-                item.Image = EmbadedFilesHelper.GetImage(imageName(item.Id));
+                item.ImageAsBytes = EmbadedFilesHelper.GetImage(imageName(item.Id));
             }
             return list;
         }
@@ -63,8 +62,7 @@ namespace YourWorkOut.Services
         {
             ExerciseList.Remove(ExerciseList.First(x => x.Id == complex.Id));
             ExerciseList.Add(complex);
-            App.Current.Properties[ServiceKey] = ExerciseList;
-            App.Current.SavePropertiesAsync();
+            SaveData(ExerciseList);
         }
     }
 }

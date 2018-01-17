@@ -42,14 +42,13 @@ namespace YourWorkOut.Views
             txtName.Text = SelectedComplex.Name;
         }
 
-        public async void OnSaveClicked(object sender, EventArgs eventArgs)
+        public void OnSaveClicked(object sender, EventArgs eventArgs)
         {
             SelectedComplex.Name = txtName.Text;
             SelectedComplex.DurationTimePerExerciseInSeconds =
                 EnumHelper.Parse<DurationEnum>(picDuration.SelectedItem.ToString());
 
             ComplexService.Save(SelectedComplex);
-            await Navigation.PopAsync();
         }
 
         public async void OnStartClicked(object sender, EventArgs eventArgs)
