@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -22,6 +23,14 @@ namespace YourWorkOut
                 stream.CopyTo(ms);
                 return ms.ToArray();
             }
+        }
+
+        public static Stream GetAudio(string audioName)
+        {
+            var basePath = "YourWorkOut.";
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            var audioStream = assembly.GetManifestResourceStream(basePath + audioName);
+            return audioStream;
         }
     }
 }

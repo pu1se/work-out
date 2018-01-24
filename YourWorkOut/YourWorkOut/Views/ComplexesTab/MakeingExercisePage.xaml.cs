@@ -45,10 +45,13 @@ namespace YourWorkOut.Views.ComplexesTab
                 return;
 	        }
 
-	        
-            
 
-	        var currentExercise = leftExercises.Pop();
+            /*var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+	        var file = EmbadedFilesHelper.GetAudio("beep-long.mp3");
+	        player.Load(file);
+	        player.Play();*/
+
+            var currentExercise = leftExercises.Pop();
 
 	        //await Audio.Manager.PlayBackgroundMusic("music.mp3");
 
