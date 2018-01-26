@@ -9,9 +9,9 @@ using Xamarin.Forms;
 
 namespace YourWorkOut
 {
-    public static class EmbadedFilesHelper
+    public class EmbadedResources
     {
-        public static byte[] GetImage(string imageName)
+        public byte[] GetImage(string imageName)
         {
             var basePath = "YourWorkOut.Images.";
             var result = ImageSource.FromResource(basePath + imageName);
@@ -25,9 +25,9 @@ namespace YourWorkOut
             }
         }
 
-        public static Stream GetAudio(string audioName)
+        public Stream GetAudio(string audioName)
         {
-            var basePath = "YourWorkOut.";
+            var basePath = "YourWorkOut.Audio.";
             var assembly = typeof(App).GetTypeInfo().Assembly;
             var audioStream = assembly.GetManifestResourceStream(basePath + audioName);
             return audioStream;

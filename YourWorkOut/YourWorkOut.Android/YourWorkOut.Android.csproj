@@ -99,9 +99,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioResource.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AndroidResources.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

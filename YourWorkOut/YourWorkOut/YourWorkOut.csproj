@@ -38,10 +38,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\DescriptionAttribute.cs" />
-    <Compile Include="Core\EnumHelper.cs" />
-    <Compile Include="Core\EmbadedFilesHelper.cs" />
-    <Compile Include="Core\ObjectExtensions.cs" />
+    <Compile Include="_Core\DescriptionAttribute.cs" />
+    <Compile Include="_Core\EnumHelper.cs" />
+    <Compile Include="_Core\EmbadedResources.cs" />
+    <Compile Include="_Core\FileManager.cs" />
+    <Compile Include="_Core\IAudioResource.cs" />
+    <Compile Include="_Core\IFileResources.cs" />
+    <Compile Include="_Core\ObjectExtensions.cs" />
     <Compile Include="Entities\ComplexEntity.cs" />
     <Compile Include="Entities\ExerciseEntity.cs" />
     <Compile Include="Enums\DefaultDurationEnum.cs" />
@@ -161,8 +164,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="beep-long.mp3" />
-    <EmbeddedResource Include="beep-short.mp3" />
+    <EmbeddedResource Include="Audio\beep-long.mp3" />
+    <EmbeddedResource Include="Audio\beep-short.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

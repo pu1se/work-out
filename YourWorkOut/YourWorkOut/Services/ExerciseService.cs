@@ -43,7 +43,7 @@ namespace YourWorkOut.Services
 
             foreach (var item in list)
             {
-                item.ImageAsBytes = EmbadedFilesHelper.GetImage(imageName(item.Id));
+                item.ImageAsBytes = FileManager.EmbadedResource.GetImage(imageName(item.Id));
             }
             return list;
         }

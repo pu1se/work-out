@@ -22,20 +22,20 @@ namespace YourWorkOut.Views.ComplexesTab
 		    Title = "Executing " + SelectedComplex.Name;
 		    selectedComplex.Exercise.Reverse();
             var exercises = new Stack<ExerciseEntity>(selectedComplex.Exercise);
-		    
-            
+
+
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                StartNewExercise(exercises, exercises.Count);
+                StartNewExercise(exercises, exercises.Count).ConfigureAwait(false);
                 return false;
             });
 
 		}
 
-	    public void StartNewExercise(Stack<ExerciseEntity> leftExercises, int numberOfAllExercises)
+	    public async Task StartNewExercise(Stack<ExerciseEntity> leftExercises, int numberOfAllExercises)
 	    {
 	        txtProgressExercises.Text = numberOfAllExercises - leftExercises.Count + " / " + numberOfAllExercises;
-            progress.ProgressTo(100*(numberOfAllExercises - leftExercises.Count) * 1.0 / numberOfAllExercises, 500, Easing.Linear);
+            await progress.ProgressTo(100*(numberOfAllExercises - leftExercises.Count) * 1.0 / numberOfAllExercises, 500, Easing.Linear);
             
             if (leftExercises.Count == 0)
 	        {
@@ -46,6 +46,10 @@ namespace YourWorkOut.Views.ComplexesTab
 	        }
 
 
+	        FileManager.PlayAudioFile("beep-long.mp3");
+
+//	        var player = new System.Media.SoundPlayer();
+
             /*var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 	        var file = EmbadedFilesHelper.GetAudio("beep-long.mp3");
 	        player.Load(file);
@@ -53,7 +57,7 @@ namespace YourWorkOut.Views.ComplexesTab
 
             var currentExercise = leftExercises.Pop();
 
-	        //await Audio.Manager.PlayBackgroundMusic("music.mp3");
+//	        await Audio.Manager.PlayBackgroundMusic("music.mp3");
 
             txtName.Text = currentExercise.Name;
 	        imgImage.Source = currentExercise.Image;
